@@ -1,2 +1,2 @@
 # LeetCodeGo
-Yet another repository dedicated to solving LeetCode problems
+Yet another repository dedicated to solving LeetCode problems.
