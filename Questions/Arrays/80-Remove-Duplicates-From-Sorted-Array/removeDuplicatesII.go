@@ -1,4 +1,4 @@
-package dsa
+package arrays
 
 import "fmt"
 
