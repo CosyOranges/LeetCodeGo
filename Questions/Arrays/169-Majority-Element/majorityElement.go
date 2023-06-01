@@ -6,19 +6,12 @@ func majorityElement(nums []int) int {
 	// The easy solution is to use a map
 	elements := map[int]int{}
 	k := len(nums)
+	ans := 0
 
 	for i := 0; i < len(nums); i++ {
-		if _, ok := elements[nums[i]]; ok {
-			elements[nums[i]]++
-		} else {
-			elements[nums[i]] = 1
-		}
-	}
-
-	ans := 0
-	for key, val := range elements {
-		if val > k/2 {
-			ans = key
+		elements[nums[i]]++
+		if elements[nums[i]] > k/2 {
+			ans = nums[i]
 		}
 	}
 
