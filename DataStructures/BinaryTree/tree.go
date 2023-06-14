@@ -23,18 +23,25 @@ func (t *BinaryTree[T]) BuildFromInAndPostOrderLists(InOrder []T, PostOrder []T)
 
 	t.root = t.root.newNode(PostOrder[n-1])
 
+	// If PostOrder list is only of length 1 then we return the root node
 	if n <= 1 {
 		return t
 	}
 
+	// Find the index in `InOrder` about which to split
 	split_indx := findSplitIndex(InOrder, PostOrder[n-1])
 
+	// Create the Left and Right InOrder slices
 	left_inorder_slice := InOrder[:split_indx]
 	right_inorder_slice := InOrder[split_indx+1:]
 
+	// Create the Left and Right PostOrder slices:
+	// Left will be from index 0 -> len(left_inorder_slice)
+	// Right will be from index len(left_inorder_slice) -> n-1 (not inclusive becuase PostOrder[n-1] is the root)
 	left_postorder_slice := PostOrder[:len(left_inorder_slice)]
-	right_postorder_slice := PostOrder[len(left_inorder_slice) : len(PostOrder)-1]
+	right_postorder_slice := PostOrder[len(left_inorder_slice) : n-1]
 
+	// Recursively build the rest of the tree, this helper function follows the same logic, but returns a BinaryNode instead of the tree
 	t.root.left = t.root.buildFromInAndPostOrderLists(left_inorder_slice, left_postorder_slice)
 	t.root.right = t.root.buildFromInAndPostOrderLists(right_inorder_slice, right_postorder_slice)
 
