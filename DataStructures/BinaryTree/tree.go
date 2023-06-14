@@ -55,8 +55,8 @@ func (t *BinaryTree[T]) WalkPreOrder() []T {
 	arr[*i] = t.root.val
 	*i++
 
-	t.root.walkPreOrderHelper(t.root.left, arr, i)
-	t.root.walkPreOrderHelper(t.root.right, arr, i)
+	t.root.walkPreOrder(t.root.left, arr, i)
+	t.root.walkPreOrder(t.root.right, arr, i)
 
 	return arr
 }
@@ -73,6 +73,7 @@ func (t *BinaryTree[T]) Size() int {
 	return size
 }
 
+// Priivate functions to the package, these are helper functions to the above
 func (b *binarynode[T]) buildFromInAndPostOrderLists(InOrder []T, PostOrder []T) *binarynode[T] {
 	n := len(PostOrder)
 	// If the current node has no children return
@@ -110,14 +111,14 @@ func findSplitIndex[T any](InOrder []T, val T) int {
 	return -1
 }
 
-func (b *binarynode[T]) walkPreOrderHelper(node *binarynode[T], arr []T, i *int) {
+func (b *binarynode[T]) walkPreOrder(node *binarynode[T], arr []T, i *int) {
 	if node == nil {
 		return
 	}
 	arr[*i] = node.val
 	*i++
-	b.walkPreOrderHelper(node.left, arr, i)
-	b.walkPreOrderHelper(node.right, arr, i)
+	b.walkPreOrder(node.left, arr, i)
+	b.walkPreOrder(node.right, arr, i)
 }
 
 func (b *binarynode[T]) size(node *binarynode[T]) int {
