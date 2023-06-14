@@ -11,7 +11,7 @@ func TestTreeBuildFromInAndPostOrderLists(t *testing.T) {
 	PostOrder := []int{8, 4, 5, 2, 6, 7, 3, 1}
 
 	// Root
-	root := &BinaryTree[int]{}
+	root := new(BinaryTree[int])
 	root.BuildFromInAndPostOrderLists(InOrder, PostOrder)
 
 	t.Run("Assert Size of Array", func(t *testing.T) {
