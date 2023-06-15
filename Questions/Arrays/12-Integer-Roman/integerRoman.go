@@ -1,4 +1,4 @@
-package main
+package arrays
 
 import (
 	"fmt"
@@ -55,8 +55,8 @@ func intToSlice(num int, arr []int) []int {
 	return arr
 }
 
-func main() {
-	// 3999 -> MMMCMXCIX
-	fmt.Printf("Ans: %s\n", intToRoman(3999))
-	// fmt.Printf("Mod 4 % 1000: %v\n")
-}
+// func main() {
+// 	// 3999 -> MMMCMXCIX
+// 	fmt.Printf("Ans: %s\n", intToRoman(3999))
+// 	// fmt.Printf("Mod 4 % 1000: %v\n")
+// }

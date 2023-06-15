@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package arrays
 
 func FullJustify(words []string, maxwidth int) []string {
 	ans := []string{}
@@ -86,12 +82,12 @@ func lineBuilder(spaces int, line string, lastline bool) string {
 	return line
 }
 
-func main() {
-	test := []string{"Listen", "to", "many,", "speak", "to", "a", "few."}
-	just := FullJustify(test, 6)
+// func main() {
+// 	test := []string{"Listen", "to", "many,", "speak", "to", "a", "few."}
+// 	just := FullJustify(test, 6)
 
-	for _, x := range just {
-		fmt.Printf("%v | Length: %v\n", x, len(x))
-	}
-	// fmt.Printf("Justified:\n%v\n%v\n%v\n", just[0], just[1], just[2])
-}
+// 	for _, x := range just {
+// 		fmt.Printf("%v | Length: %v\n", x, len(x))
+// 	}
+// 	// fmt.Printf("Justified:\n%v\n%v\n%v\n", just[0], just[1], just[2])
+// }
