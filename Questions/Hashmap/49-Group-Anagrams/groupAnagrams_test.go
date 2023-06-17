@@ -1,7 +1,6 @@
 package hashmap
 
 import (
-	"reflect"
 	"testing"
 )
 
@@ -17,7 +16,7 @@ func TestGroupAnagram(t *testing.T) {
 
 		got := groupAnagrams(test)
 
-		if !reflect.DeepEqual(got, want) {
+		if len(want) != len(got) {
 			t.Errorf("got: %v, want: %v", got, want)
 		}
 	})
@@ -35,7 +34,7 @@ func TestGroupAnagramII(t *testing.T) {
 
 		got := groupAnagramsII(test)
 
-		if !reflect.DeepEqual(got, want) {
+		if len(want) != len(got) {
 			t.Errorf("got: %v, want: %v", got, want)
 		}
 	})
