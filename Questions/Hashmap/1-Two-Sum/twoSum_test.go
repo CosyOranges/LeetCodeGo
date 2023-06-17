@@ -1,4 +1,4 @@
-package arrays
+package hashmap
 
 import (
 	"reflect"
