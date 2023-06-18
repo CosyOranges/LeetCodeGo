@@ -1,9 +1,12 @@
 package linkedlist
 
-import "testing"
+import (
+	linkedlist "dsa/DataStructures/LinkedList"
+	"testing"
+)
 
 func TestHasCycleFloyd(t *testing.T) {
-	linkedList := &ListNode{}
+	linkedList := &linkedlist.ListNode{}
 	linkedList = linkedList.Build([]int{3, 2, 0, -4})
 
 	t.Run("Test no cylce", func(t *testing.T) {
