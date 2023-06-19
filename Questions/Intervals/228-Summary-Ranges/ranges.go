@@ -1,7 +1,6 @@
-package main
+package intervals
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -78,8 +77,8 @@ func summaryRanges(nums []int) []string {
 	return ans
 }
 
-func main() {
-	nums := []int{0, 1, 2, 4, 5, 7}
+// func main() {
+// 	nums := []int{0, 1, 2, 4, 5, 7}
 
-	fmt.Printf("Ans: %v\n", summaryRanges(nums))
-}
+// 	fmt.Printf("Ans: %v\n", summaryRanges(nums))
+// }
