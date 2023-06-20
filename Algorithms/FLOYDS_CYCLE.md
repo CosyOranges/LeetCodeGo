@@ -24,7 +24,7 @@ func CycleDetect(node *ListNode) bool {
 
     slow, fast := node, node
 
-    for slow != nil && fast != nil {
+    for slow != nil && fast.Next != nil {
         slow = slow.Next
         fast = fast.Next.Next
         if fast == slow {
