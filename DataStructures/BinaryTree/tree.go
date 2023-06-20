@@ -14,6 +14,34 @@ type BinaryTree[T any] struct {
 	root *binarynode[T]
 }
 
+func (t *BinaryTree[T]) BuildFromArray(arr []T) *BinaryTree[T] {
+	n := len(arr)
+	if n == 0 {
+		return nil
+	}
+
+	ind := 0
+	t.root = t.root.newNode(arr[ind])
+	if ind < n {
+		t.root.left = t.root.buildFromArray(arr, 2*ind+1)
+		t.root.right = t.root.buildFromArray(arr, 2*ind+2)
+	}
+	return t
+}
+
+func (b *binarynode[T]) buildFromArray(arr []T, ind int) *binarynode[T] {
+
+	node := b.newNode(arr[ind])
+	if ind < len(arr) {
+		node.left = b.buildFromArray(arr, 2*ind+1)
+		node.right = b.buildFromArray(arr, 2*ind+2)
+	} else {
+		return nil
+	}
+
+	return node
+}
+
 func (t *BinaryTree[T]) BuildFromInAndPostOrderLists(InOrder []T, PostOrder []T) *BinaryTree[T] {
 	n := len(PostOrder)
 	// If the current node has no children return
