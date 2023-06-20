@@ -1,6 +1,9 @@
 package dynamic
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestMinPathSum(t *testing.T) {
 	grid := [][]int{
@@ -27,6 +30,29 @@ func TestMinPathSum(t *testing.T) {
 		got := minPathSum(grid2)
 
 		if got != want {
+			t.Errorf("got: %v, want: %v", got, want)
+		}
+	})
+}
+
+func TestMinPath(t *testing.T) {
+	grid := [][]int{
+		{1, 3, 1},
+		{1, 5, 1},
+		{4, 2, 1},
+	}
+	t.Run("Test standard array", func(t *testing.T) {
+		want := [][]int{
+			{0, 0},
+			{0, 1},
+			{0, 2},
+			{1, 2},
+			{2, 2},
+		}
+
+		got := minPath(grid)
+
+		if !reflect.DeepEqual(got, want) {
 			t.Errorf("got: %v, want: %v", got, want)
 		}
 	})
