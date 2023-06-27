@@ -21,8 +21,10 @@ func parenthesisSet(n int) []string {
 	// We will always have a starting point of "()"
 	temp := "()"
 
-	// No return from the helper function because Go passes by reference and so any changes
-	// made to combos in the function will be available to us here without an explicit return
+	// No return from the helper function because maps in Go are reference types and so changes
+	// made to "combos" in the function will be available to us here without an explicit return.
+	//		Strings are a value-type in Go and hence we don't need to worry about our recursive function
+	//		changing the input string before other variations are explored
 	// I'm also going to carry the original n to use to check if the combo created is of the right length
 	// This could be done a different way by checking after the combo is created whether n-1 == 0
 	helper(combos, n, n-1, temp)
