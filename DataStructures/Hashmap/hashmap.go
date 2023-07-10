@@ -40,7 +40,7 @@ type EqualsFn[T any] func(a, b T) bool
 /*
 Return a new hashmap of any type.
 
-- Key input is the hash function this has to match the type of the key for the hasmap you are declaring
+  - Key input is the hash function this has to match the type of the key for the hasmap you are declaring
 */
 func NewHashmap[K, V any](equals EqualsFn[K], hash HashFn[K]) *Hashmap[K, V] {
 	return &Hashmap[K, V]{
@@ -114,7 +114,7 @@ func (m *Hashmap[K, V]) Delete(key K) {
 
 	if m.data[index] != nil {
 		if pos == 0 && m.ops.equals(m.data[index].Key, key) {
-			fmt.Printf("Here at position2: %v\n", pos)
+			// fmt.Printf("Here at position2: %v\n", pos) // Debugging
 
 			m.data[index] = m.data[index].Next
 			return
@@ -122,7 +122,7 @@ func (m *Hashmap[K, V]) Delete(key K) {
 		prev, curr := head, head.Next
 		for curr != nil {
 			if m.ops.equals(curr.Key, key) {
-				fmt.Printf("Here at position: %v\n", pos)
+				// fmt.Printf("Here at position: %v\n", pos) // Debugging
 				temp := curr
 				prev.Next = temp.Next
 				return
